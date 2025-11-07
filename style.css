@@ -23,7 +23,7 @@ body {
 header {
     background: #2a2a2a;
     border-bottom: 1px solid #444;
-    padding: 15px 0;
+    padding: 15px 0; /* PC 기본 패딩 유지 */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -39,7 +39,7 @@ header {
     header .logo {
         font-size: 1.5em;
         font-weight: bold;
-        color: #00bcd4; /* 로고 색상(강조색) */
+        color: #00bcd4;
     }
 
 /* PC에서는 햄버거 버튼 숨기기 */
@@ -56,7 +56,7 @@ header {
 /* PC 메뉴 스타일: 가로 나열 */
 header nav ul {
     list-style: none;
-    display: flex; /* 가로 나열 유지 */
+    display: flex; /* 가로 나열 */
 }
 
 header nav li {
@@ -79,7 +79,7 @@ header nav a {
 /* ======================================= */
 .hero {
     background: #333;
-    padding: 80px 0;
+    padding: 80px 0; /* PC 기본 패딩 유지 */
     text-align: center;
     color: #fff;
 }
@@ -230,17 +230,19 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* 9-1. 헤더 및 메뉴 (드롭다운) */
-    header .container {
-        /* ★ 로고 쏠림 해결 및 중앙 정렬 ★ */
-        justify-content: space-between;
-        padding: 10px 20px;
+    /* 9-1. 헤더 (모바일 폭 및 정렬 수정) */
+    header {
+        padding: 8px 0; /* ★ 모바일 헤더 상하 폭 축소 ★ */
     }
 
-    header .logo {
-        /* 로고 글씨 크기 조정 */
-        font-size: 1.3em;
-    }
+        header .container {
+            justify-content: space-between;
+            padding: 5px 20px; /* ★ 내부 여백도 함께 축소 ★ */
+        }
+
+        header .logo {
+            font-size: 1.3em;
+        }
 
     .menu-toggle {
         display: block;
@@ -254,7 +256,7 @@ footer {
     header nav {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 40px; /* ★ 헤더 높이에 맞게 드롭다운 메뉴 시작 위치 조정 ★ */
         left: 0;
         width: 100%;
         background-color: #333;
@@ -286,7 +288,7 @@ footer {
 
     /* 9-2. 메인 배너 여백 축소 */
     .hero {
-        padding: 40px 0; /* ★ 위아래 여백을 절반으로 줄임 ★ */
+        padding: 40px 0; /* 위아래 여백을 절반으로 줄임 */
     }
 
         /* 9-3. 글씨 크기 조정 */
