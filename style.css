@@ -8,13 +8,10 @@ body, h1, h2, h3, h4, p, ul {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     color: #ccc;
-    /* PC/기본: 인디고 빛 (보랏빛 파랑) 투명도 10%로 은은하게 조정 */
-    background: linear-gradient( to top, rgba(136, 96, 208, 0.1) 0%, /* 보랏빛에 가까운 인디고 색상으로 변경 (R:136, G:96, B:208) */
-    #1e1e1e 50% /* 표준 진한 블랙 종료색 유지 */
-    );
+    /* 배경은 단색 #1e1e1e 유지 */
+    background: #1e1e1e;
     background-attachment: fixed;
-    /* ★★★ 전체적인 밝기 및 생동감 향상 (반짝이는 느낌) ★★★ */
-    filter: brightness(1.1); /* 전체적으로 10% 더 밝게 만들어 빛을 받는 듯한 효과 */
+    filter: brightness(1.1);
 }
 
 .container {
@@ -33,8 +30,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    /* ★★★ 헤더에 미세한 빛 번짐 효과 추가 ★★★ */
-    box-shadow: 0 0 10px rgba(136, 96, 208, 0.2); /* 인디고 색상으로 은은하게 빛 번짐 */
+    box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
 }
 
     header .container {
@@ -75,20 +71,18 @@ header nav a {
     text-decoration: none;
     color: #ccc;
     font-weight: bold;
-    transition: color 0.3s, filter 0.3s; /* filter 전환 효과 추가 */
+    transition: color 0.3s, filter 0.3s;
 }
 
     header nav a:hover {
         color: #8860D0; /* 보랏빛 인디고 */
-        /* ★★★ 호버 시 더 밝게 반짝이는 효과 ★★★ */
-        filter: brightness(1.3); /* 호버 시 30% 더 밝게 */
+        filter: brightness(1.3);
     }
 
 /* ======================================= */
 /* 2. 메인 배너 (Hero) */
 /* ======================================= */
 .hero {
-    /* 배경 투명화 유지 (body 그라데이션 비침) */
     background-color: transparent;
     background-image: none;
     padding: 80px 0;
@@ -115,27 +109,24 @@ header nav a {
     font-weight: bold;
     display: inline-block;
     margin: 5px;
-    transition: background-color 0.3s, filter 0.3s, box-shadow 0.3s; /* 전환 효과 추가 */
+    transition: background-color 0.3s, filter 0.3s, box-shadow 0.3s;
 }
 
 .btn-primary {
     background-color: #8860D0; /* 보랏빛 인디고 */
     color: #222;
-    /* ★★★ 버튼에 미세한 빛 번짐 효과 추가 ★★★ */
-    box-shadow: 0 0 8px rgba(136, 96, 208, 0.4); /* 인디고 색상으로 빛 번짐 */
+    box-shadow: 0 0 8px rgba(136, 96, 208, 0.4);
 }
 
     .btn-primary:hover {
         background-color: #5e40a0; /* 더 진한 보랏빛 인디고 (호버) */
-        /* ★★★ 호버 시 더 밝게 반짝이는 효과 ★★★ */
-        filter: brightness(1.2); /* 호버 시 20% 더 밝게 */
-        box-shadow: 0 0 15px rgba(136, 96, 208, 0.6); /* 호버 시 빛 번짐 강하게 */
+        filter: brightness(1.2);
+        box-shadow: 0 0 15px rgba(136, 96, 208, 0.6);
     }
 
 .btn-secondary {
     background-color: #555;
     color: #fff;
-    /* 보조 버튼도 미세한 그림자 추가 */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -149,7 +140,6 @@ header nav a {
 /* ======================================= */
 section {
     padding: 60px 0;
-    /* 배경 투명화 유지 (body 그라데이션 비침) */
     background-color: transparent;
 }
 
@@ -173,9 +163,8 @@ h2 {
     padding: 25px;
     border-radius: 8px;
     text-align: center;
-    /* ★★★ 서비스 아이템에 미세한 빛 번짐 효과 추가 ★★★ */
-    box-shadow: 0 0 12px rgba(136, 96, 208, 0.2); /* 인디고 색상으로 빛 번짐 */
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* 전환 효과 추가 */
+    box-shadow: 0 0 12px rgba(136, 96, 208, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
     .service-item h3 {
@@ -204,11 +193,10 @@ h2 {
 
 /* 6. 중간 광고 (CTA 배너) */
 #cta-banner {
-    background: #8860D0; /* 보랏빛 인디고 배경 */
+    background: #8860D0; /* 보랏빛 인디고 배경 유지 */
     color: #222;
     text-align: center;
-    /* ★★★ CTA 배너에 미세한 빛 번짐 효과 추가 ★★★ */
-    box-shadow: 0 0 20px rgba(136, 96, 208, 0.4); /* 인디고 색상으로 빛 번짐 */
+    box-shadow: 0 0 20px rgba(136, 96, 208, 0.4);
 }
 
     #cta-banner h2 {
@@ -219,19 +207,19 @@ h2 {
     #cta-banner .btn-primary {
         background: #222;
         color: #E65A4F; /* 은은한 붉은색 */
-        box-shadow: 0 0 8px rgba(230, 90, 79, 0.6); /* 붉은색으로 빛 번짐 */
+        box-shadow: 0 0 8px rgba(230, 90, 79, 0.6);
     }
 
         #cta-banner .btn-primary:hover {
             filter: brightness(1.2); /* 호버 시 더 밝게 */
-            box-shadow: 0 0 15px rgba(230, 90, 79, 0.8); /* 호버 시 붉은 빛 번짐 강화 */
+            box-shadow: 0 0 15px rgba(230, 90, 79, 0.8);
         }
 
 /* 7. 매장 위치 및 지도 */
 #location {
     padding: 60px 0;
-    /* 빛 강도 급격히 낮추기 (어두운 배경 덮어씌우기 유지) */
-    background-color: rgba(0, 0, 0, 0.8); /* 지도 섹션 아래로 내려가면 빛 효과를 빠르게 차단 */
+    /* 🔴 변경: 배경색 제거하여 body 배경색과 일치 */
+    background-color: transparent;
 }
 
     #location .location-content {
@@ -257,6 +245,7 @@ h2 {
     #location .info {
         flex-shrink: 0;
         min-width: 300px;
+        padding-top: 10px; /* 지도의 빈 공간 아래와 정보 텍스트 간격 조정 */
     }
 
 /* 8. 푸터 */
@@ -273,23 +262,98 @@ footer {
     }
 
 /* ======================================= */
-/* 9. 모바일 반응형 디자인 (@media) */
+/* 90. 이미지 무한 캐러셀 (GEFORCE NOW 스타일) */
 /* ======================================= */
 
+.image-carousel-section {
+    padding: 30px 0;
+    overflow: hidden; /* 트랙 밖으로 나가는 이미지를 숨김 */
+    background-color: #1a1a1a; /* 배경색 설정 */
+}
+
+.carousel-track-container {
+    width: 100%;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: inline-block;
+    animation: scroll-left linear infinite; /* 애니메이션 기본 설정 */
+    width: max-content;
+}
+
+    .carousel-track img {
+        height: 150px; /* 이미지 높이 설정 */
+        width: auto;
+        margin-right: 15px; /* 이미지 간격 */
+        display: inline-block;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 이미지 그림자 유지 */
+    }
+
+/* 🖱️ 마우스를 트랙 컨테이너에 올렸을 때 애니메이션 멈춤 */
+.carousel-track-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+
+/* --- 애니메이션 속도 정의 (초가 길수록 느림) --- */
+.track-slow {
+    animation-duration: 60s;
+}
+
+.track-medium {
+    animation-duration: 40s;
+}
+
+.track-fast {
+    animation-duration: 25s;
+}
+
+
+/* --- 실제 스크롤 애니메이션 Keyframes --- */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ======================================= */
+/* 99. 로딩 바(게이지) 스타일 */
+/* ======================================= */
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px; /* 게이지 두께 */
+    background-color: #ff0000; /* 유튜브 로딩 바 색상 유지 */
+    z-index: 9999; /* 다른 요소 위에 표시 */
+    opacity: 0;
+    transition: width 0.4s ease-out, opacity 0.3s;
+}
+
+/* ======================================= */
+/* 모바일 반응형 디자인 (@media) */
+/* ======================================= */
 @media (max-width: 768px) {
 
-    /* ★★★ 모바일 전용: 빛 크기와 강도 축소 (보랏빛 인디고 적용) ★★★ */
+    /* 모바일 전용 배경도 단색 유지 */
     body {
-        background: linear-gradient( to top, rgba(136, 96, 208, 0.05) 0%, /* 빛 강도 5%로 더 은은하게 */
-        #1e1e1e 30% /* 빛 크기 30%로 축소 */
-        );
+        background: #1e1e1e;
         background-attachment: fixed;
     }
 
     /* 9-1. 헤더 (모바일 폭 및 정렬 수정) */
     header {
         padding: 8px 0;
-        /* 모바일 헤더의 빛 번짐은 조금 줄여서 과하지 않게 */
         box-shadow: 0 0 5px rgba(136, 96, 208, 0.1);
     }
 
@@ -363,101 +427,11 @@ footer {
         padding: 30px 0;
     }
 
-    #location .location-content {
-        flex-direction: column;
-    }
-    /* 모바일에서는 서비스 아이템 그림자도 좀 줄여서 과하지 않게 */
     .service-item {
         box-shadow: 0 0 8px rgba(136, 96, 208, 0.15);
     }
-    /* 모바일 CTA 배너 그림자도 좀 줄여서 과하지 않게 */
+
     #cta-banner {
         box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
     }
-}
-
-/* ======================================= */
-/* 90. 이미지 무한 캐러셀 (GEFORCE NOW 스타일) */
-/* ======================================= */
-
-.image-carousel-section {
-    padding: 30px 0;
-    overflow: hidden; /* 트랙 밖으로 나가는 이미지를 숨김 */
-    background-color: #1a1a1a; /* 배경색 설정 */
-}
-
-.carousel-track-container {
-    width: 100%;
-    margin: 10px 0;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: inline-block;
-    animation: scroll-left linear infinite; /* 애니메이션 기본 설정 */
-    /* 트랙의 폭을 충분히 넓게 설정해야 이미지가 끊기지 않고 반복됩니다. */
-    width: max-content;
-}
-
-    .carousel-track img {
-        height: 150px; /* 이미지 높이 설정 */
-        width: auto;
-        margin-right: 15px; /* 이미지 간격 */
-        display: inline-block;
-        border-radius: 5px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
-/* 🖱️ 마우스를 트랙 컨테이너에 올렸을 때 애니메이션 멈춤 */
-.carousel-track-container:hover .carousel-track {
-    animation-play-state: paused;
-}
-
-
-/* --- 애니메이션 속도 정의 (초가 길수록 느림) --- */
-
-/* 1. 첫째 줄: 제일 느리게 (60초) */
-.track-slow {
-    animation-duration: 60s;
-}
-
-/* 3. 세 번째 줄: 조금만 빠르게 (40초) */
-.track-medium {
-    animation-duration: 40s;
-}
-
-/* 2. 두 번째 줄: 빠르게 (25초) */
-.track-fast {
-    animation-duration: 25s;
-}
-
-
-/* --- 실제 스크롤 애니메이션 Keyframes --- */
-@keyframes scroll-left {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        /* 이미지 배열의 복사본이 시작되는 지점까지 이동 */
-        transform: translateX(-50%);
-    }
-}
-
-
-/* ======================================= */
-/* 99. 로딩 바(게이지) 스타일 */
-/* ======================================= */
-.loading-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 3px; /* 게이지 두께 */
-    background-color: #ff0000; /* 유튜브 로딩 바 색상 */
-    z-index: 9999; /* 다른 요소 위에 표시 */
-    opacity: 0;
-    /* 트랜지션 시간 설정 (JavaScript와 연동) */
-    transition: width 0.4s ease-out, opacity 0.3s;
 }
