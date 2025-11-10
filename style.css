@@ -375,3 +375,19 @@ footer {
         box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
     }
 }
+
+/* ======================================= */
+/* 99. 로딩 바(게이지) 스타일 */
+/* ======================================= */
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px; /* 게이지 두께 */
+    background-color: #ff0000; /* 유튜브 로딩 바 색상 */
+    z-index: 9999; /* 다른 요소 위에 표시 */
+    opacity: 0;
+    /* 트랜지션 시간 설정 (JavaScript와 연동) */
+    transition: width 0.4s ease-out, opacity 0.3s;
+}
