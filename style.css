@@ -377,6 +377,76 @@ footer {
 }
 
 /* ======================================= */
+/* 90. 이미지 무한 캐러셀 (GEFORCE NOW 스타일) */
+/* ======================================= */
+
+.image-carousel-section {
+    padding: 30px 0;
+    overflow: hidden; /* 트랙 밖으로 나가는 이미지를 숨김 */
+    background-color: #1a1a1a; /* 배경색 설정 */
+}
+
+.carousel-track-container {
+    width: 100%;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: inline-block;
+    animation: scroll-left linear infinite; /* 애니메이션 기본 설정 */
+    /* 트랙의 폭을 충분히 넓게 설정해야 이미지가 끊기지 않고 반복됩니다. */
+    width: max-content;
+}
+
+    .carousel-track img {
+        height: 150px; /* 이미지 높이 설정 */
+        width: auto;
+        margin-right: 15px; /* 이미지 간격 */
+        display: inline-block;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+/* 🖱️ 마우스를 트랙 컨테이너에 올렸을 때 애니메이션 멈춤 */
+.carousel-track-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+
+/* --- 애니메이션 속도 정의 (초가 길수록 느림) --- */
+
+/* 1. 첫째 줄: 제일 느리게 (60초) */
+.track-slow {
+    animation-duration: 60s;
+}
+
+/* 3. 세 번째 줄: 조금만 빠르게 (40초) */
+.track-medium {
+    animation-duration: 40s;
+}
+
+/* 2. 두 번째 줄: 빠르게 (25초) */
+.track-fast {
+    animation-duration: 25s;
+}
+
+
+/* --- 실제 스크롤 애니메이션 Keyframes --- */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* 이미지 배열의 복사본이 시작되는 지점까지 이동 */
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ======================================= */
 /* 99. 로딩 바(게이지) 스타일 */
 /* ======================================= */
 .loading-bar {
