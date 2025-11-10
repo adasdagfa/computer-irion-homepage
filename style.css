@@ -1,0 +1,464 @@
+/* 기본 스타일 초기화 */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ccc;
+    background: #1e1e1e;
+    background-attachment: fixed;
+    filter: brightness(1.1);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ======================================= */
+/* 1. 헤더 (메뉴) - PC 기본 스타일 */
+/* ======================================= */
+header {
+    background: #252525;
+    border-bottom: 1px solid #444;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
+}
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    header .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #8860D0; /* 보랏빛 인디고 */
+    }
+
+/* PC에서는 햄버거 버튼 숨기기 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #8860D0; /* 보랏빛 인디고 */
+    padding: 5px;
+}
+
+/* PC 메뉴 스타일: 가로 나열 */
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav li {
+    margin-left: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: bold;
+    transition: color 0.3s, filter 0.3s;
+}
+
+    header nav a:hover {
+        color: #8860D0; /* 보랏빛 인디고 */
+        filter: brightness(1.3);
+    }
+
+/* ======================================= */
+/* 2. 메인 배너 (Hero) */
+/* ======================================= */
+.hero {
+    /* 🔴 변경: 배경 이미지 추가 및 관련 설정 */
+    background-image: url('static/hero_background.jpg'); /* 이미지 파일명 확인 필요 */
+    background-size: cover; /* 섹션을 꽉 채우도록 */
+    background-position: center; /* 이미지를 중앙에 위치 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    position: relative; /* 오버레이를 위한 기준점 */
+    z-index: 1; /* 오버레이 아래에 위치 */
+    overflow: hidden; /* 이미지가 섹션 밖으로 넘어가지 않도록 */
+
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+
+    /* 텍스트 가독성을 위한 어두운 오버레이 */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 검정색 50% 투명도 (조절 가능) */
+        z-index: 2; /* 배경 이미지 위에, 텍스트 아래에 위치 */
+    }
+
+.hero-content {
+    position: relative; /* 텍스트가 오버레이 위에 오도록 */
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+/* CTA 버튼 스타일 */
+.btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+    transition: background-color 0.3s, filter 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary {
+    background-color: #8860D0; /* 보랏빛 인디고 */
+    color: #222;
+    box-shadow: 0 0 8px rgba(136, 96, 208, 0.4);
+}
+
+    .btn-primary:hover {
+        background-color: #5e40a0; /* 더 진한 보랏빛 인디고 (호버) */
+        filter: brightness(1.2);
+        box-shadow: 0 0 15px rgba(136, 96, 208, 0.6);
+    }
+
+.btn-secondary {
+    background-color: #555;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+    .btn-secondary:hover {
+        filter: brightness(1.1); /* 호버 시 살짝 밝게 */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 호버 시 그림자 강화 */
+    }
+
+/* ======================================= */
+/* 3. 섹션 공통 스타일 */
+/* ======================================= */
+section {
+    padding: 60px 0;
+    background-color: transparent;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #eee;
+}
+
+/* 4. 핵심 서비스 */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    background: #2b2b2b; /* 항목 구분을 위해 어두운 불투명 배경 유지 */
+    border: 1px solid #444;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(136, 96, 208, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+    .service-item h3 {
+        margin-bottom: 10px;
+        color: #8860D0; /* 보랏빛 인디고 */
+    }
+
+    .service-item:hover {
+        transform: translateY(-5px); /* 호버 시 살짝 떠오르는 효과 */
+        box-shadow: 0 0 20px rgba(136, 96, 208, 0.4); /* 호버 시 빛 번짐 강화 */
+        filter: brightness(1.1); /* 호버 시 살짝 밝게 */
+    }
+
+/* 5. '컴퓨터 이리온'만의 약속 */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feature-item h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+/* 6. 중간 광고 (CTA 배너) */
+#cta-banner {
+    background: #8860D0; /* 보랏빛 인디고 배경 유지 */
+    color: #222;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(136, 96, 208, 0.4);
+}
+
+    #cta-banner h2 {
+        color: #222;
+    }
+
+    /* CTA 내부 버튼: 배경은 진한 검정, 텍스트 색은 은은한 붉은색 */
+    #cta-banner .btn-primary {
+        background: #222;
+        color: #E65A4F; /* 은은한 붉은색 */
+        box-shadow: 0 0 8px rgba(230, 90, 79, 0.6);
+    }
+
+        #cta-banner .btn-primary:hover {
+            filter: brightness(1.2); /* 호버 시 더 밝게 */
+            box-shadow: 0 0 15px rgba(230, 90, 79, 0.8);
+        }
+
+/* 7. 매장 위치 및 지도 */
+#location {
+    padding: 60px 0;
+    background-color: transparent;
+}
+
+    #location .location-content {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    #location .map-placeholder {
+        width: 100%;
+        max-height: 400px;
+        overflow: hidden;
+        flex-grow: 1;
+        margin-bottom: 20px;
+    }
+
+        #location .map-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    #location .info {
+        flex-shrink: 0;
+        min-width: 300px;
+        padding-top: 10px;
+    }
+
+/* 8. 푸터 */
+footer {
+    background: #111; /* 불투명한 가장 진한 블랙 배경 유지 (가독성 확보) */
+    color: #ccc; /* 푸터 텍스트 색상을 밝은 회색으로 유지 */
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+    footer p {
+        margin-bottom: 5px;
+    }
+
+/* ======================================= */
+/* 90. 이미지 무한 캐러셀 (GEFORCE NOW 스타일) */
+/* ======================================= */
+
+.image-carousel-section {
+    padding: 30px 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.carousel-track-container {
+    width: 100%;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: inline-block;
+    animation: scroll-left linear infinite;
+    width: max-content;
+}
+
+    .carousel-track img {
+        height: 150px;
+        width: auto;
+        margin-right: 15px;
+        display: inline-block;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+/* 🖱️ 마우스를 트랙 컨테이너에 올렸을 때 애니메이션 멈춤 */
+.carousel-track-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+
+/* --- 애니메이션 속도 정의 (초가 길수록 느림) --- */
+.track-slow {
+    animation-duration: 60s;
+}
+
+.track-medium {
+    animation-duration: 40s;
+}
+
+.track-fast {
+    animation-duration: 25s;
+}
+
+
+/* --- 실제 스크롤 애니메이션 Keyframes --- */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ======================================= */
+/* 99. 로딩 바(게이지) 스타일 */
+/* ======================================= */
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ff0000;
+    z-index: 9999;
+    opacity: 0;
+    transition: width 0.4s ease-out, opacity 0.3s;
+}
+
+/* ======================================= */
+/* 모바일 반응형 디자인 (@media) */
+/* ======================================= */
+@media (max-width: 768px) {
+
+    body {
+        background: #1e1e1e;
+        background-attachment: fixed;
+    }
+
+    /* 🔴 변경: 모바일 Hero 섹션 배경 이미지 및 오버레이 */
+    .hero {
+        background-image: url('static/hero_background.jpg'); /* 이미지 파일명 확인 필요 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px 0; /* 모바일 여백 조정 */
+    }
+        /* 모바일 오버레이도 적용 */
+        .hero::before {
+            background-color: rgba(0, 0, 0, 0.6); /* 모바일에서는 살짝 더 어둡게 (가독성 향상) */
+        }
+
+
+    header {
+        padding: 8px 0;
+        box-shadow: 0 0 5px rgba(136, 96, 208, 0.1);
+    }
+
+        header .container {
+            justify-content: space-between;
+            padding: 5px 20px;
+        }
+
+        header .logo {
+            font-size: 1.3em;
+        }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        color: #8860D0;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background-color: #2b2b2b;
+        border-top: 1px solid #444;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        z-index: 99;
+    }
+
+        header nav.active {
+            display: block;
+        }
+
+        header nav ul {
+            display: block;
+            padding: 10px 0;
+        }
+
+        header nav li {
+            margin: 0;
+            border-bottom: 1px solid #444;
+        }
+
+        header nav a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 30px 0;
+    }
+
+    .service-item {
+        box-shadow: 0 0 8px rgba(136, 96, 208, 0.15);
+    }
+
+    #cta-banner {
+        box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
+    }
+}
