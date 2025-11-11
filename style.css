@@ -9,9 +9,13 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     color: #ccc;
     background: #1e1e1e;
-    background-attachment: fixed;
     filter: brightness(1.1);
 }
+
+    /* 스크롤 방지 CSS (모달 기능 삭제로 현재 사용되지 않음) */
+    body.modal-open {
+        overflow: auto;
+    }
 
 .container {
     width: 90%;
@@ -20,7 +24,7 @@ body {
 }
 
 /* ======================================= */
-/* 1. 헤더 (메뉴) - PC 기본 스타일 */
+/* 1. 헤더 (메뉴) */
 /* ======================================= */
 header {
     background: #252525;
@@ -42,21 +46,20 @@ header {
     header .logo {
         font-size: 1.5em;
         font-weight: bold;
-        color: #8860D0; /* 보랏빛 인디고 */
+        color: #8860D0;
+        text-decoration: none;
     }
 
-/* PC에서는 햄버거 버튼 숨기기 */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
-    color: #8860D0; /* 보랏빛 인디고 */
+    color: #8860D0;
     padding: 5px;
 }
 
-/* PC 메뉴 스타일: 가로 나열 */
 header nav ul {
     list-style: none;
     display: flex;
@@ -74,7 +77,7 @@ header nav a {
 }
 
     header nav a:hover {
-        color: #8860D0; /* 보랏빛 인디고 */
+        color: #8860D0;
         filter: brightness(1.3);
     }
 
@@ -82,7 +85,7 @@ header nav a {
 /* 2. 메인 배너 (Hero) */
 /* ======================================= */
 .hero {
-    background-image: url('static/hero_background.jpg'); /* 이미지 파일명 확인 필요 */
+    background-image: url('static/hero_background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -94,7 +97,6 @@ header nav a {
     color: #fff;
 }
 
-    /* 텍스트 가독성을 위한 어두운 오버레이 */
     .hero::before {
         content: '';
         position: absolute;
@@ -102,7 +104,7 @@ header nav a {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* 검정색 50% 투명도 (조절 가능) */
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 2;
     }
 
@@ -129,31 +131,17 @@ header nav a {
     border-radius: 5px;
     font-weight: bold;
     display: inline-block;
-    margin: 5px; /* 기본 버튼 간격 */
+    margin: 5px;
     transition: background-color 0.3s, filter 0.3s, box-shadow 0.3s;
-}
-
-.btn-primary {
-    background-color: #8860D0; /* 보랏빛 인디고 */
-    color: #222;
-    box-shadow: 0 0 8px rgba(136, 96, 208, 0.4);
-}
-
-    .btn-primary:hover {
-        background-color: #5e40a0; /* 더 진한 보랏빛 인디고 (호버) */
-        filter: brightness(1.2);
-        box-shadow: 0 0 15px rgba(136, 96, 208, 0.6);
-    }
-
-.btn-secondary {
     background-color: #555;
     color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-    .btn-secondary:hover {
-        filter: brightness(1.1); /* 호버 시 살짝 밝게 */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 호버 시 그림자 강화 */
+    .btn:hover {
+        filter: brightness(1.2);
+        background-color: #666;
+        box-shadow: 0 0 12px rgba(136, 96, 208, 0.7);
     }
 
 /* ======================================= */
@@ -171,15 +159,15 @@ h2 {
     color: #eee;
 }
 
-/* 4. 핵심 서비스 */
-.service-grid {
+/* 4. 서비스 및 약속 그리드 */
+.service-grid, .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
-.service-item {
-    background: #2b2b2b; /* 항목 구분을 위해 어두운 불투명 배경 유지 */
+.service-item, .feature-item {
+    background: #2b2b2b;
     border: 1px solid #444;
     padding: 25px;
     border-radius: 8px;
@@ -188,55 +176,43 @@ h2 {
     transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
-    .service-item h3 {
+    .service-item h3, .feature-item h4 {
         margin-bottom: 10px;
-        color: #8860D0; /* 보랏빛 인디고 */
+        color: #8860D0;
     }
 
-    .service-item:hover {
-        transform: translateY(-5px); /* 호버 시 살짝 떠오르는 효과 */
-        box-shadow: 0 0 20px rgba(136, 96, 208, 0.4); /* 호버 시 빛 번짐 강화 */
-        filter: brightness(1.1); /* 호버 시 살짝 밝게 */
+    .service-item:hover, .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(136, 96, 208, 0.4);
+        filter: brightness(1.1);
     }
 
-/* 5. '컴퓨터 이리온'만의 약속 */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.feature-item h4 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #ddd;
-}
-
-/* 6. 중간 광고 (CTA 배너) */
+/* 5. 중간 광고 (CTA 배너) */
 #cta-banner {
-    background: #8860D0; /* 보랏빛 인디고 배경 유지 */
+    background: #8860D0;
     color: #222;
     text-align: center;
     box-shadow: 0 0 20px rgba(136, 96, 208, 0.4);
+    padding: 40px 0;
 }
 
     #cta-banner h2 {
         color: #222;
+        margin-bottom: 10px;
     }
 
-    /* CTA 내부 버튼: 배경은 진한 검정, 텍스트 색은 은은한 붉은색 */
     #cta-banner .btn-primary {
         background: #222;
-        color: #E65A4F; /* 은은한 붉은색 */
+        color: #E65A4F;
         box-shadow: 0 0 8px rgba(230, 90, 79, 0.6);
     }
 
         #cta-banner .btn-primary:hover {
-            filter: brightness(1.2); /* 호버 시 더 밝게 */
+            filter: brightness(1.2);
             box-shadow: 0 0 15px rgba(230, 90, 79, 0.8);
         }
 
-/* 7. 매장 위치 및 지도 */
+/* 6. 매장 위치 및 지도 */
 #location {
     padding: 60px 0;
     background-color: transparent;
@@ -246,49 +222,63 @@ h2 {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     #location .map-placeholder {
-        width: 100%;
+        min-width: 300px;
+        flex: 2;
         max-height: 400px;
         overflow: hidden;
-        flex-grow: 1;
         margin-bottom: 20px;
     }
 
-        #location .map-placeholder img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
     #location .info {
+        flex: 1;
         flex-shrink: 0;
         min-width: 300px;
         padding-top: 10px;
     }
 
-/* 8. 푸터 */
+/* 7. 푸터 */
 footer {
     background: #111;
     color: #ccc;
     padding: 30px 0;
     text-align: center;
     font-size: 0.9em;
+    position: relative;
 }
 
     footer p {
         margin-bottom: 5px;
+        line-height: 1.5;
     }
 
+/* 방문자 카운터 스타일 */
+.visitor-count {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.8em;
+    color: #666;
+}
+
+#visitor-count-number {
+    font-weight: bold;
+    color: #888;
+}
+
+
 /* ======================================= */
-/* 90. 이미지 무한 캐러셀 (GEFORCE NOW 스타일) */
+/* 90. 이미지 무한 캐러셀 */
 /* ======================================= */
 
 .image-carousel-section {
     padding: 30px 0;
     overflow: hidden;
     background-color: #1a1a1a;
+    position: relative;
 }
 
 .carousel-track-container {
@@ -313,13 +303,10 @@ footer {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
-/* 🖱️ 마우스를 트랙 컨테이너에 올렸을 때 애니메이션 멈춤 */
 .carousel-track-container:hover .carousel-track {
     animation-play-state: paused;
 }
 
-
-/* --- 애니메이션 속도 정의 (초가 길수록 느림) --- */
 .track-slow {
     animation-duration: 60s;
 }
@@ -332,8 +319,6 @@ footer {
     animation-duration: 25s;
 }
 
-
-/* --- 실제 스크롤 애니메이션 Keyframes --- */
 @keyframes scroll-left {
     from {
         transform: translateX(0);
@@ -343,6 +328,11 @@ footer {
         transform: translateX(-50%);
     }
 }
+
+
+/* ======================================= */
+/* 95. 이미지 확대 모달 (Lightbox) CSS 전체 제거됨 */
+/* ======================================= */
 
 
 /* ======================================= */
@@ -361,64 +351,36 @@ footer {
 }
 
 /* ======================================= */
-/* 모바일 반응형 디자인 (@media) */
+/* 🔴 모바일 반응형 디자인 (@media) - 폰트 크기 전체 조정 */
 /* ======================================= */
 @media (max-width: 768px) {
 
+    /* 1. 모바일 기본 폰트 크기를 살짝 줄임 (전체 폰트에 영향) */
     body {
-        background: #1e1e1e;
-        background-attachment: fixed;
+        font-size: 95%;
     }
 
     .hero {
-        background-image: url('static/hero_background.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 40px 0;
+        background-attachment: scroll;
     }
 
-        .hero::before {
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        /* 🔴 변경: 모바일 Hero 섹션 제목 폰트 크기 조정 */
         .hero h1 {
-            font-size: 1.5em; /* 기존 1.8em에서 더 작게 */
+            font-size: 1.5em;
         }
 
-        /* 🔴 변경: 모바일 Hero 섹션 설명 폰트 크기 조정 */
+        /* 2. 히어로 섹션 설명 텍스트 */
         .hero p {
-            font-size: 0.9em; /* 기존 1.1em에서 더 작게 */
+            font-size: 0.9em;
         }
 
-    /* 🔴 변경: 모바일 Hero 섹션 버튼 마진 조정 */
+    /* 3. 히어로 버튼 텍스트 */
     .hero-buttons .btn {
-        margin: 3px; /* 버튼 간격 줄임 */
+        font-size: 0.9em;
+        padding: 10px 15px;
     }
-
-
-    header {
-        padding: 8px 0;
-        box-shadow: 0 0 5px rgba(136, 96, 208, 0.1);
-    }
-
-        header .container {
-            justify-content: space-between;
-            padding: 5px 20px;
-        }
-
-        header .logo {
-            font-size: 1.3em;
-        }
 
     .menu-toggle {
         display: block;
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-        color: #8860D0;
     }
 
     header nav {
@@ -447,16 +409,13 @@ footer {
             border-bottom: 1px solid #444;
         }
 
+        /* 4. 모바일 메뉴 텍스트 */
         header nav a {
             display: block;
             padding: 12px 20px;
-            font-size: 1.1em;
+            font-size: 1em;
             text-align: center;
         }
-
-    .hero h1 {
-        font-size: 1.8em;
-    }
 
     h2 {
         font-size: 1.5em;
@@ -466,11 +425,42 @@ footer {
         padding: 30px 0;
     }
 
-    .service-item {
-        box-shadow: 0 0 8px rgba(136, 96, 208, 0.15);
+    /* 5. 서비스/약속 섹션 텍스트 */
+    .service-item h3, .feature-item h4 {
+        font-size: 1.1em;
     }
 
-    #cta-banner {
-        box-shadow: 0 0 10px rgba(136, 96, 208, 0.2);
+    .service-item p, .feature-item p {
+        font-size: 0.9em;
+    }
+
+    /* 6. CTA 배너 텍스트 */
+    #cta-banner h2 {
+        font-size: 1.2em;
+    }
+
+    #cta-banner p {
+        font-size: 0.9em;
+    }
+
+    /* 7. 위치 정보 텍스트 */
+    #location .info p {
+        font-size: 0.9em;
+    }
+
+    /* 8. 푸터 텍스트 */
+    footer p {
+        font-size: 0.85em;
+    }
+
+    /* 9. 카운터 모바일 위치 조정 */
+    .visitor-count {
+        position: static;
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+
+    #location .info, #location .map-placeholder {
+        min-width: 100%;
     }
 }
