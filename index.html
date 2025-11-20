@@ -213,14 +213,18 @@
     <script src="script.js"></script>
 
     <script type="text/javascript">
-        // 좌표: 전북 부안군 부안읍 용암로 89 (컴퓨터이리온 위치 근처)
+        // '전북특별자치도 부안군 부안읍 용암로 89'의 좌표입니다.
+        // 위도(Lat): 35.729154
+        // 경도(Lng): 126.733525
+
         var mapOptions = {
             center: new naver.maps.LatLng(35.729154, 126.733525),
-            zoom: 17
+            zoom: 17 // 줌 레벨 (숫자가 클수록 확대됨)
         };
 
         var map = new naver.maps.Map('map', mapOptions);
 
+        // 마커 생성 (지도 위에 핀을 꽂습니다)
         var marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(35.729154, 126.733525),
             map: map
