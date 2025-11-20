@@ -213,20 +213,20 @@
     <script src="script.js"></script>
 
     <script type="text/javascript">
-        // '전북특별자치도 부안군 부안읍 용암로 89'의 좌표입니다.
-        // 위도(Lat): 35.729154
-        // 경도(Lng): 126.733525
+        // 고객님께서 알려주신 정확한 좌표 적용
+        var targetLat = 35.719821400;
+        var targetLng = 126.744099357;
 
         var mapOptions = {
-            center: new naver.maps.LatLng(35.729154, 126.733525),
-            zoom: 17 // 줌 레벨 (숫자가 클수록 확대됨)
+            center: new naver.maps.LatLng(targetLat, targetLng),
+            zoom: 18 // 건물이 명확히 보이도록 확대
         };
 
         var map = new naver.maps.Map('map', mapOptions);
 
-        // 마커 생성 (지도 위에 핀을 꽂습니다)
+        // 마커 생성 (컴퓨터이리온 위치에 핀을 꽂습니다)
         var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(35.729154, 126.733525),
+            position: new naver.maps.LatLng(targetLat, targetLng),
             map: map
         });
     </script>
